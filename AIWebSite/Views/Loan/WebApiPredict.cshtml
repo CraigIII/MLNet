@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "貸款申請表單";
+}
+
+<h1>Index</h1>
+
+<h4>MLModel</h4>
+<hr />
+<div class="container">
+    <div class="form-group">
+        <label class="form-label">Checking_status:</label>
+        <input id="Checking_status" class="form-control" value="0<=X<200" />
+    </div>
+    <div class="form-group">
+        <label class="form-label"> Duration:</label>
+        <input id="Duration" class="form-control" value="48" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Credit_history:</label>
+        <input id="Credit_history" class="form-control" value="existing paid" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Purpose:</label>
+        <input id="Purpose" class="form-control" value="radio/tv" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Credit_amount:</label>
+        <input id="Credit_amount" class="form-control" value="5951" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Savings_status:</label>
+        <input id="Savings_status" class="form-control" value="<100" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Employment:</label>
+        <input id="Employment" class="form-control" value="1<=X<4" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Installment_commitment:</label>
+        <input id="Installment_commitment" class="form-control" value="2" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Personal_status:</label>
+        <input id="Personal_status" class="form-control" value="female div/dep/mar" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Other_parties:</label>
+        <input id="Other_parties" class="form-control" value="none" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Residence_since:</label>
+        <input id="Residence_since" class="form-control" value="2" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Property_magnitude:</label>
+        <input id="Property_magnitude" class="form-control" value="real estate" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Age:</label>
+        <input id="Age" class="form-control" value="22" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Other_payment_plans:</label>
+        <input id="Other_payment_plans" class="form-control" value="none" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Housing:</label>
+        <input id="Housing" class="form-control" value="own" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Existing_credits:</label>
+        <input id="Existing_credits" class="form-control" value="1" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Job:</label>
+        <input id="Job" class="form-control" value="skilled" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Num_dependents:</label>
+        <input id="Num_dependents" class="form-control" value="1" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Own_telephone:</label>
+        <input id="Own_telephone" class="form-control" value="none" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Foreign_worker:</label>
+        <input type="checkbox" id="Foreign_worker" />
+    </div>
+    <div class="form-group">
+        <input id="btnPredict" type="submit" value="申請" class="btn btn-primary" />
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        var baseAddress = "https://localhost:53963";
+        $("#btnPredict").on("click", function () {
+            //alert("predict");
+            var input = {
+                Checking_status: $("#Checking_status").val(),
+                Duration: $("#Duration").val(),
+                Credit_history: $("#Credit_history").val(),
+                Purpose: $("#Purpose").val(),
+                Credit_amount: $("#Credit_amount").val(),
+                Savings_status: $("#Savings_status").val(),
+                Employment: $("#Employment").val(),
+                Installment_commitment: $("#Installment_commitment").val(),
+                Personal_status: $("#Personal_status").val(),
+                Other_parties: $("#Other_parties").val(),
+                Residence_since: $("#Residence_since").val(),
+                Property_magnitude: $("#Property_magnitude").val(),
+                Age: $("#Age").val(),
+                Other_payment_plans: $("#Other_payment_plans").val(),
+                Housing: $("#Housing").val(),
+                Existing_credits: $("#Existing_credits").val(),
+                Job: $("#Job").val(),
+                Num_dependents: $("#Num_dependents").val(),
+                Own_telephone: $("#Own_telephone").val(),
+                Foreign_worker: $("#Foreign_worker").is(":checked"),
+            };
+            $.ajax({
+                type: "POST",
+                url: `${baseAddress}/predict`,
+                data: JSON.stringify(input),
+                contentType: "application/json",
+            }).done(function (data) {
+                // alert(JSON.stringify(data));
+                var predictedLabel = data['predictedLabel'];
+                var score = data['score'].sort().reverse()[0];
+                alert(`信用等級:${predictedLabel}, 信心指數:${(score * 100).toFixed(2)}%`);
+            }).fail(function (xhr, textStatus, errorThrown) {
+                alert(xhr.responseText);
+            });
+        });
+    </script>
+}

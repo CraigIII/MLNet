@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AIMobileApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="Checking_status:"/>
+            <Entry x:Name="entChecking_status" Text="0&lt;=X&lt;200"></Entry>
+            <Label Text="Duration:"/>
+            <Entry x:Name="entDuration" Text="48"></Entry>
+            <Label Text="Credit_history:"/>
+            <Entry x:Name="entCredit_history" Text="existing"></Entry>
+            <Label Text="Purpose:"/>
+            <Entry x:Name="entPurpose" Text="radio/tv"></Entry>
+            <Label Text="Credit_amount:"/>
+            <Entry x:Name="entCredit_amount" Text="5951"></Entry>
+            <Label Text="Savings_status:"/>
+            <Entry x:Name="entSavings_status" Text="0&lt;100"></Entry>
+            <Label Text="Employment:"/>
+            <Entry x:Name="entEmployment" Text="10&lt;=X0&lt;4"></Entry>
+            <Label Text="Installment_commitment:"/>
+            <Entry x:Name="entInstallment_commitment" Text="2"></Entry>
+            <Label Text="Personal_status:"/>
+            <Entry x:Name="entPersonal_status" Text="female div/dep/mar"></Entry>
+            <Label Text="Other_parties:"/>
+            <Entry x:Name="entOther_parties" Text="none"></Entry>
+            <Label Text="Residence_since:"/>
+            <Entry x:Name="entResidence_since" Text="2"></Entry>
+            <Label Text="Property_magnitude:"/>
+            <Entry x:Name="entProperty_magnitude" Text="real estate"></Entry>
+            <Label Text="Age:"/>
+            <Entry x:Name="entAge" Text="22"></Entry>
+            <Label Text="Other_payment_plans:"/>
+            <Entry x:Name="entOther_payment_plans" Text="none"></Entry>
+            <Label Text="Housing:"/>
+            <Entry x:Name="entHousing" Text="own"></Entry>
+            <Label Text="Existing_credits:"/>
+            <Entry x:Name="entExisting_credits" Text="1"></Entry>
+            <Label Text="Job:"/>
+            <Entry x:Name="entJob" Text="skilled"></Entry>
+            <Label Text="Num_dependents:"/>
+            <Entry x:Name="entNum_dependents" Text="1"></Entry>
+            <Label Text="Own_telephone:"/>
+            <Entry x:Name="entOwn_telephone" Text="none"></Entry>
+            <Label Text="Foreign_worker:"/>
+            <CheckBox x:Name="cbForeign_worker" IsChecked="False"></CheckBox>
+            <Button
+                x:Name="BtnLoan"
+                Text="申請" 
+                Clicked="OnLoanClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

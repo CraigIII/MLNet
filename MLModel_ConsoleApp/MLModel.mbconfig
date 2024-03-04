@@ -1,0 +1,407 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "E:\\Document\\Microsoft\\文章\\AI時代的網站與手機App建置與開發\\AI時代的網站與手機App建置與開發Part4 - 整合ML.NET與ASP.NET Core MVC網站 - 建立訓練機器學習模型\\credit_customers.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "checking_status",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "duration",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "credit_history",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "purpose",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "credit_amount",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "savings_status",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "employment",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "installment_commitment",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "personal_status",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "other_parties",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "residence_since",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "property_magnitude",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "age",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "other_payment_plans",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "housing",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "existing_credits",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "job",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "num_dependents",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "own_telephone",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "foreign_worker",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Boolean",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "class",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.61219118728698985,
+        "RuntimeInSeconds": 6.77,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e7 * e8 * e9 * e10 * e11 * e12 * e13 * e14 * e15 * e16 * e23",
+          "e0": {
+            "OutputColumnNames": [
+              "duration",
+              "credit_amount",
+              "installment_commitment",
+              "residence_since",
+              "age",
+              "existing_credits",
+              "num_dependents"
+            ],
+            "InputColumnNames": [
+              "duration",
+              "credit_amount",
+              "installment_commitment",
+              "residence_since",
+              "age",
+              "existing_credits",
+              "num_dependents"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "foreign_worker"
+            ],
+            "InputColumnNames": [
+              "foreign_worker"
+            ]
+          },
+          "e10": {
+            "InputColumnName": "other_payment_plans",
+            "OutputColumnName": "other_payment_plans"
+          },
+          "e11": {
+            "InputColumnName": "housing",
+            "OutputColumnName": "housing"
+          },
+          "e12": {
+            "InputColumnName": "job",
+            "OutputColumnName": "job"
+          },
+          "e13": {
+            "InputColumnName": "own_telephone",
+            "OutputColumnName": "own_telephone"
+          },
+          "e14": {
+            "InputColumnNames": [
+              "duration",
+              "credit_amount",
+              "installment_commitment",
+              "residence_since",
+              "age",
+              "existing_credits",
+              "num_dependents",
+              "foreign_worker",
+              "checking_status",
+              "credit_history",
+              "purpose",
+              "savings_status",
+              "employment",
+              "personal_status",
+              "other_parties",
+              "property_magnitude",
+              "other_payment_plans",
+              "housing",
+              "job",
+              "own_telephone"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e15": {
+            "OutputColumnName": "class",
+            "InputColumnName": "class",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e16": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 254,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          },
+          "e2": {
+            "InputColumnName": "checking_status",
+            "OutputColumnName": "checking_status"
+          },
+          "e23": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e3": {
+            "InputColumnName": "credit_history",
+            "OutputColumnName": "credit_history"
+          },
+          "e4": {
+            "InputColumnName": "purpose",
+            "OutputColumnName": "purpose"
+          },
+          "e5": {
+            "InputColumnName": "savings_status",
+            "OutputColumnName": "savings_status"
+          },
+          "e6": {
+            "InputColumnName": "employment",
+            "OutputColumnName": "employment"
+          },
+          "e7": {
+            "InputColumnName": "personal_status",
+            "OutputColumnName": "personal_status"
+          },
+          "e8": {
+            "InputColumnName": "other_parties",
+            "OutputColumnName": "other_parties"
+          },
+          "e9": {
+            "InputColumnName": "property_magnitude",
+            "OutputColumnName": "property_magnitude"
+          },
+          "e17": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          },
+          "e18": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          },
+          "e19": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          },
+          "e20": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          },
+          "e21": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          },
+          "e22": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "class",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ReplaceMissingValues",
+      "e1": "ConvertType",
+      "e2": "FeaturizeText",
+      "e3": "FeaturizeText",
+      "e4": "FeaturizeText",
+      "e5": "FeaturizeText",
+      "e6": "FeaturizeText",
+      "e7": "FeaturizeText",
+      "e8": "FeaturizeText",
+      "e9": "FeaturizeText",
+      "e10": "FeaturizeText",
+      "e11": "FeaturizeText",
+      "e12": "FeaturizeText",
+      "e13": "FeaturizeText",
+      "e14": "Concatenate",
+      "e15": "MapValueToKey",
+      "e16": "FastTreeOva",
+      "e17": "FastForestOva",
+      "e18": "LightGbmMulti",
+      "e19": "LbfgsLogisticRegressionOva",
+      "e20": "LbfgsMaximumEntropyMulti",
+      "e21": "SdcaMaximumEntropyMulti",
+      "e22": "SdcaLogisticRegressionOva",
+      "e23": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e7 * e8 * e9 * e10 * e11 * e12 * e13 * e14 * e15 * (e16 + e17 + e18 + e19 + e20 + e21 + e22) * e23",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "E:\\Document\\Microsoft\\文章\\AI時代的網站與手機App建置與開發\\範例\\AIWebSite\\AIWebSite\\MLModel.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 1,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 10,
+    "LabelColumn": "class",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
